@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.chiragaggarwal.currencyconverter.CurrencyViewModel" />
+
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        tools:context="net.chiragaggarwal.currencyconverter.MainActivity">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/edit_text_inr"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_main"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_margin="16dp"
-            android:hint="INR"
-            android:inputType="number" />
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            tools:context="net.chiragaggarwal.currencyconverter.MainActivity">
 
-        <EditText
-            android:id="@+id/edit_text_idr"
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_margin="16dp"
+                android:hint="INR"
+                android:inputType="number"
+                android:text="@={viewModel.inr}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_margin="16dp"
+                android:hint="IDR"
+                android:inputType="number"
+                android:text="@={viewModel.idr}" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_clear"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_margin="16dp"
-            android:hint="IDR"
-            android:inputType="number" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Clear" />
 
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button_clear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="Clear" />
-
-</FrameLayout>
+    </FrameLayout>
+</layout>
